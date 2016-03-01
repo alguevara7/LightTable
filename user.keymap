@@ -1,0 +1,49 @@
+;; User keymap
+;; -----------------------------
+;; Keymaps are stored as a set of diffs that are merged together to create
+;; the final set of keys. You can modify these diffs to either add or
+;; subtract bindings.
+;;
+;; Like behaviors, keys are bound by tag. When objects with those tags are active
+;; the key bindings are live. Keys can be bound to any number of Light Table commands,
+;; allowing you the flexibility to execute multiple operations together. To see a list
+;; of all the commands you can execute, start typing a word related to the thing you
+;; want to do in between the square brackets (e.g. type "editor").
+
+[
+  [:editor "alt-w" :editor.watch.watch-selection]
+  [:editor "alt-shift-w" :editor.watch.unwatch]
+
+  [:app "pmeta-space" :show-commandbar-transient]
+
+  [:app "pmeta-shift-w" :workspace.show]
+
+  [:app "pmeta-shift-c" :clear-console :clear-inline-results]
+
+  [:app "pmeta-alt-c" :show-connect]
+
+  [:app "pmeta-shift-t" :toggle-console]
+
+  [:editor "pmeta-/" :toggle-comment-selection]
+
+  [:editor.keys.vim.normal "alt-c" :toggle-console]
+  [:editor.keys.vim.normal "shift-tab" :smart-indent-selection]
+  [:editor.keys.vim.normal ">" :paredit.grow.right]
+  [:editor.keys.vim.normal "<" :paredit.grow.left]
+  [:editor.keys.vim.normal "shift-up" :paredit.select.parent]
+  [:editor.keys.vim.normal "shift-enter" :paredit-plus.new-line-after-pair-close]
+
+  [:editor.keys.vim.normal "ctrl-w" :paredit.unwrap.parent]
+  [:editor.keys.vim.normal "ctrl-shift-9" :paredit-plus.wrap-round]
+  [:editor.keys.vim.normal "ctrl-shift-[" :paredit-plus.wrap-curly]
+  [:editor.keys.vim.normal "ctrl-[" :paredit-plus.wrap-square]
+  [:editor.keys.vim.normal "ctrl-shift-'" :paredit-plus.wrap-quote]
+
+  [:app "ctrl-h" :tabs.prev]
+  [:app "ctrl-l" :tabs.next]
+
+  ;;[:editor.clojure "pmeta-enter" :eval-editor]
+
+  ;; To subtract a binding, prefix the key with '-'  e.g.
+  ;;  [:app "-ctrl-shift-d" :docs.search.show]
+  ]
